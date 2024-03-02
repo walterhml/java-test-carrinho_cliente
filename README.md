@@ -26,3 +26,28 @@ A classe `CarrinhoComprasFactory` é responsável pela criação e recuperação
 
 Este projeto pode ser compilado usando Maven. Para compilar o projeto, execute o seguinte comando na raiz do projeto:
 
+
+
+Isso compilará o projeto e gerará um arquivo JAR executável.
+
+## Exemplo de Uso
+
+Aqui está um exemplo básico de como utilizar as classes implementadas:
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        Produto produto1 = new Produto(1L, "Camiseta");
+        Produto produto2 = new Produto(2L, "Calça");
+        
+        CarrinhoComprasFactory factory = new CarrinhoComprasFactory();
+        CarrinhoCompras carrinho1 = factory.criar("cliente1");
+        
+        carrinho1.adicionarItem(produto1, BigDecimal.valueOf(20.0), 2);
+        carrinho1.adicionarItem(produto2, BigDecimal.valueOf(50.0), 1);
+        
+        BigDecimal valorTotal = carrinho1.getValorTotal();
+        System.out.println("Valor total do carrinho: " + valorTotal);
+    }
+}
+
